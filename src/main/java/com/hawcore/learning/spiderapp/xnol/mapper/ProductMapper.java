@@ -1,10 +1,10 @@
 package com.hawcore.learning.spiderapp.xnol.mapper;
 
 import com.hawcore.learning.spiderapp.xnol.model.Product;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
 
 /**
  * @author xn025665
@@ -35,4 +35,11 @@ public interface ProductMapper {
             "where productId = #{productId,jdbcType=INTEGER}"
     })
     Product findByProductId(Integer productId);
+
+    @Update({
+            "update t_product",
+            "set principalAmount = #{principalAmount,jdbcType=DECIMAL} ",
+            "where productId = #{productId,jdbcType=INTEGER}"
+    })
+    int updatePrincipalAmount(@Param("productId") Integer productId, @Param("principalAmount") BigDecimal principalAmount);
 }

@@ -21,7 +21,7 @@ public class KafkaProducer {
     /**
      * 定时任务
      */
-    @Scheduled(cron = "00/1 * * * * ?")
+//    @Scheduled(cron = "00/1 * * * * ?")
     public void send() {
         String message = UUID.randomUUID().toString();
         ListenableFuture future = kafkaTemplate.send("app_log", message);
