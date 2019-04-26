@@ -40,8 +40,7 @@ public class TestController {
 
     @Autowired
     private KafkaProducer kafkaProducer;
-    @Autowired
-    private XnolProductPipeline xnolProductPipeline;
+
 
 
     @RequestMapping("/test/{name}")
@@ -86,23 +85,5 @@ public class TestController {
     public void send() {
         kafkaProducer.send();
     }
-
-
-    @RequestMapping("/xnol")
-    public void xnol() {
-        new Thread(() -> {
-            while (true) {
-                try {
-                    Spider.create(new XnolProductProcessor()).addRequest(RequestHelper.getListRequest()).addPipeline(xnolProductPipeline).thread(1).run();
-                } catch (Exception e) {
-                }
-                try {
-                    TimeUnit.SECONDS.sleep(2);
-                } catch (Exception e) {
-                }
-            }
-        }).start();
-    }
-
 
 }

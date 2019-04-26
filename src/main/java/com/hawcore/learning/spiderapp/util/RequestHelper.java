@@ -40,7 +40,7 @@ public class RequestHelper {
     }
 
     private static Map<String, String> getCookie() {
-        String cookie = "_ga=GA1.2.1522612021.1507704380; Hm_lvt_bfadffd6cb8f795e488eccaeb28cab61=1552283587; Hm_lvt_7226b8c48cd07619c7a9ebd471d9d589=1554713563,1555055209,1555663895,1556100929; JSESSIONID=A0C31F2E3EB9EE0AA1C90960D74B5BC9.t-9003; _gid=GA1.2.2022119033.1556245926; referer=\"https://www.xiaoniu88.com/user/_2019-04-26\"; sr=331271.43.11.3.116.7.225.146.0.33.20.15.07; _gat=1; lcksid=5cc2e9924bd1f3007c494cc0; SESSIONID=fbe3a103-0065-439f-adab-acae1ecf0c17; Hm_lpvt_7226b8c48cd07619c7a9ebd471d9d589=1556277666";
+        String cookie = "_ga=GA1.2.1600595210.1541356001; sr=331271.43.11.3.223.73.212.26.0.33.20.15.07; Hm_lvt_7226b8c48cd07619c7a9ebd471d9d589=1556285891; _gid=GA1.2.1021385015.1556285891; lcksid=5cc30a394bd1f3007c494d11; SESSIONID=531d8fc4-1d64-4db9-83e4-dbfb95540174; referer=\"https://www.xiaoniu88.com/user/_2019-04-26\"; _gat=1; JSESSIONID=ABC3B2D342A1B256DCCA2C58B82F749D.t-9003; Hm_lpvt_7226b8c48cd07619c7a9ebd471d9d589=1556286010";
         return CookieUtils.getCookieMap(cookie);
     }
 
