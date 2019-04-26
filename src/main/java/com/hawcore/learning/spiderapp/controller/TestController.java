@@ -3,6 +3,7 @@ package com.hawcore.learning.spiderapp.controller;
 import com.hawcore.learning.spiderapp.dazhong.*;
 import com.hawcore.learning.spiderapp.elm.pipeline.ElemeShopPipeline;
 import com.hawcore.learning.spiderapp.elm.processor.ElemeShopProcessor;
+import com.hawcore.learning.spiderapp.kafka.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,9 @@ public class TestController {
 
     @Autowired
     private DzEsInfoService dzEsInfoService;
+
+    @Autowired
+    private KafkaProducer kafkaProducer;
 
     @RequestMapping("/test/{name}")
     public String test(@PathVariable("name") String name) {
@@ -61,5 +65,10 @@ public class TestController {
                     .addUrl(daZhongDianPingProcessor.getUrl(i)).thread(1).run();
         }
 
+    }
+
+    @RequestMapping("/send")
+    public void send(){
+        kafkaProducer.send();
     }
 }
